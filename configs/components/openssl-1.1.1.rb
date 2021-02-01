@@ -78,6 +78,9 @@ component 'openssl' do |pkg, settings, platform|
       target = 'linux-ppc64le'
     elsif platform.architecture =~ /64$/
       target = 'linux-x86_64'
+    # Not a cross-compile for debian-10-arm
+    elsif platform.name =~ /debian-10-arm/
+      target = 'linux-armv4'
     end
   end
 
