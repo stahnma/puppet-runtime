@@ -12,9 +12,8 @@ jobs:
           command: |
             sudo dpkg --add-architecture armhf
             echo "foreign-architecture armhf" > /tmp/foo
-            sudo cat /etc/dpkg/dpkg.cfg.d/architectures /tmp/foo > /tmp/bar
-            sudo cp /tmp/bar /etc/dpkg/dpkg.cfg.d/architecture
-            sudo rm -f /tmp/{foo,bar}
+            sudo cp /tmp/foo /etc/dpkg/dpkg.cfg.d/architecture
+            sudo rm -f /tmp/foo
             sudo apt-get update
             sudo apt-get -y install libstdc++:armhf 
 
