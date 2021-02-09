@@ -7,13 +7,21 @@ jobs:
       image: ubuntu-2004:202101-01
     resource_class: arm.medium
     steps:
-      - run: uname -a
-      - run: dpkg --version
-      - run: dpkg --print-architecture
-      - run: dpkg --print-foreign-architectures
-      - run: whoami
-      - run: sudo dpkg --add-architecture armhf
-      - run: echo "Hello, Arm!"
+      - run:
+          name: Setup the OS
+          command: |
+            dpkg --add-architecture armhf
+            echo "foreign-architecture armhf" >> /etc/dpkg/dpkg.cfg.d/architectures
+            apt-get update
+            apt-get install libstdc++:armhf 
+      - run:
+          name: info
+            apt-get install facter
+            facter
+
+
+
+
 
 workflows:
   build:
