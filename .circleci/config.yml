@@ -10,6 +10,7 @@ jobs:
       - run: uname -a
       - run: dpkg --version
       - run: dpkg --print-architecture
+      - run: dpkg --print-foreign-architectures
       - run: dpkg add-architecture armhf
       - run: echo "Hello, Arm!"
 
@@ -17,5 +18,4 @@ workflows:
   build:
     jobs:
       - build-medium
-      - build-large
 
