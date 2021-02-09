@@ -14,8 +14,10 @@ jobs:
             echo "foreign-architecture armhf" >> /etc/dpkg/dpkg.cfg.d/architectures
             apt-get update
             apt-get install libstdc++:armhf 
+
       - run:
           name: info
+          command: |
             apt-get install facter
             facter
 
