@@ -11,7 +11,7 @@ jobs:
       - run: dpkg --version
       - run: dpkg --print-architecture
       - run: dpkg --print-foreign-architectures
-      - run: dpkg add-architecture armhf
+      - run: dpkg --add-architecture armhf
       - run: echo "Hello, Arm!"
 
 workflows:
