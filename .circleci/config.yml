@@ -10,16 +10,16 @@ jobs:
       - run:
           name: Setup the OS
           command: |
-            dpkg --add-architecture armhf
+            sudo dpkg --add-architecture armhf
             echo "foreign-architecture armhf" >> /etc/dpkg/dpkg.cfg.d/architectures
             apt-get update
-            apt-get install libstdc++:armhf 
+            sudo apt-get -y install libstdc++:armhf 
 
       - run:
           name: info
           command: |
-            apt-get install facter
-            facter
+            sudo apt-get -y install facter
+            sudo facter
 
 
 
